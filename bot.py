@@ -3,7 +3,7 @@ dotenv.load_dotenv()
 
 import discord
 
-print(os.getenv("TOKEN"))
+print('TOKEN: ' + os.getenv("TOKEN"))
 
 class Bot(discord.Client):
     async def on_ready(self):
@@ -12,15 +12,16 @@ class Bot(discord.Client):
     async def on_message(self, m):
         if m.author == self.user: #niet op zichzelf reageren
            return
+        res = ""
+        s = str(m.content)
+        for i in range(len(s)): 
+            if not i % 2 : 
+               res = res + s[i].upper() 
+            else: 
+               res = res + s[i].lower() 
+        await m.channel.send(res[:-1] + '... ok brommer')
 
 bot = Bot()
 bot.run(os.getenv("TOKEN"))
 
-
-
-# Reageer op bericht (binnen on_message):
-    # await m.channel.send('AAAAaaaaa')
 # Bericht in text: str(m.content)
-
-# 
-# simpele login/ready log:
