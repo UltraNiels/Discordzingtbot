@@ -35,4 +35,13 @@ pygame.init()
 size = width, height = 800, 800
 fullscreen = False
 screen = pygame.display.set_mode(size)
-pygame.display.set_caption('Lyrics Syncer')
+pygame.display.set_caption('Lyrics Syncer')while True:
+    for event in pygame.event.get(): #system events
+        if event.type == pygame.QUIT:
+            exit()
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                sys.exit()
+    screen.fill(pygame.Color(255,255,255))
+
+    pygame.display.flip()
