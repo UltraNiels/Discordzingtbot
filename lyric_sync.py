@@ -31,16 +31,28 @@ while True:
 
 window.close()
 
+song = values['Title']
+artist = values['Artist']
+file = values['FilePath']
+
 def fucking_draw_text(text, coords, font='Comic Sans MS', size=30):
     myfont = pygame.font.SysFont(font, size)
     textsurface = myfont.render(text, False, (0, 0, 0))
     screen.blit(textsurface,(coords[0], coords[1]))
 
 pygame.init()
-size = width, height = 800, 800
+size = width, height = 800, 600
 fullscreen = False
 screen = pygame.display.set_mode(size)
-pygame.display.set_caption('Lyrics Syncer')while True:
+pygame.display.set_caption('Lyrics Syncer')
+
+pygame.mixer.init()
+pygame.mixer.music.load(file)
+pygame.mixer.music.play()    
+
+
+
+while True:
     for event in pygame.event.get(): #system events
         if event.type == pygame.QUIT:
             exit()
