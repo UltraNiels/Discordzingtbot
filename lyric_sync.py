@@ -31,6 +31,11 @@ while True:
 
 window.close()
 
+def fucking_draw_text(text, coords, font='Comic Sans MS', size=30):
+    myfont = pygame.font.SysFont(font, size)
+    textsurface = myfont.render(text, False, (0, 0, 0))
+    screen.blit(textsurface,(coords[0], coords[1]))
+
 pygame.init()
 size = width, height = 800, 800
 fullscreen = False
@@ -42,6 +47,10 @@ pygame.display.set_caption('Lyrics Syncer')while True:
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 sys.exit()
+    
     screen.fill(pygame.Color(255,255,255))
+    fucking_draw_text('Song: ' + song, (0, 0))
+    fucking_draw_text('Artist: ' + artist, (0, 40))
+
 
     pygame.display.flip()
