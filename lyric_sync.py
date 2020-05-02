@@ -1,11 +1,6 @@
-import pygame
-print('Starting!')
+import pygame, PySimpleGUI as sg, os
+from pygame.locals import *
 
-try:
-    import pygame
-    from pygame.locals import *
-except:
-    print('It seems like pygame isn\'t installed')
 
 pygame.init()
 size = width, height = 800, 800
